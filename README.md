@@ -12,4 +12,9 @@ A estratégia é validar se as páginas são cacheadas e atualizadas, somente ap
 - Execute o comando **yarn install**
 - Execute o comando **yarn build** para buildar a aplicação
 - Execute o comando **yarn start** para executar a aplicação.
-- Acesse no navegador: **http://localhost:3000/** You will can that the application no execute api call and after 5 minutes execute api call to get data and cache again.
+- Acesse no navegador: **http://localhost:3000/**.
+  Após 5 minutos irá apresentar um novo pokemon, depois de ter realizado o revalidate.
+
+Ou solicitar o novo revalidate por meio deste endereço: **http://localhost:3000/api/revalidate?path=/**
+
+Para ter mais segurança para a realização, configure uma variável na env. **MY_SECRET_TOKEN**

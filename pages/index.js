@@ -33,6 +33,6 @@ export async function getStaticProps() {
     props: {
       pokemon,
     },
-    revalidate: 10, // ISR para revalidar a cada 10 segundos
+    revalidate: 300, // ISR para revalidar a cada 300 segundos
   };
 }
