@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export default function RandomPokemon({ pokemon }) {
+export default function RandomPokemon({ pokemon, lastRevalidate }) {
   console.log(
     "Data do último revalidate:",
-    new Date().toLocaleString("pt-BR", { timezone: "UTC" }),
+    new Date(lastRevalidate).toLocaleString("pt-BR", { timezone: "UTC" }),
     "ID: ",
     pokemon.id
   );
@@ -28,10 +28,12 @@ export async function getStaticProps() {
     `https://pokeapi.co/api/v2/pokemon/${randomId}`
   );
   const pokemon = response.data;
+  const lastRevalidate = JSON.parse(JSON.stringify(new Date()));
 
   return {
     props: {
       pokemon,
+      lastRevalidate,
     },
     revalidate: 300, // ISR para revalidar a cada 300 segundos
   };

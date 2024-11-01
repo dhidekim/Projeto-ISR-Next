@@ -18,3 +18,6 @@ A estratégia é validar se as páginas são cacheadas e atualizadas, somente ap
 Ou solicitar o novo revalidate por meio deste endereço: **http://localhost:3000/api/revalidate?path=/**
 
 Para ter mais segurança para a realização, configure uma variável na env. **MY_SECRET_TOKEN**
+
+- Na página **http://localhost:3000/validate** possui uma lógica em que o revalidate é realizado a cada 10 segundos, mas na quarta a sexta tentativa existe a simulação da API ter erro, para demonstrar que e a página continuara retornando o último cache válido, após a sexta tentativa volta a consultar a API normalmente.
+- Foi realizado isso para validar q sempre estará exibindo uma página válida.
